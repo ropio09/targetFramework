@@ -39,6 +39,12 @@ public class HomePageTest extends TestBase {
         Assert.assertEquals(SeleniumUtils.getText(account.acctName),expectedTitle);
     }
 
+    @Test(groups= {"smoke"})
+    public void testargetBtn(){
+        SeleniumUtils.click(homePage.home_Btn);
+        String expectedTitle= "Target : Expect More. Pay Less.";
+        Assert.assertEquals(SeleniumUtils.getText(homePage.home_Btn),expectedTitle);
+    }
 
 
 
