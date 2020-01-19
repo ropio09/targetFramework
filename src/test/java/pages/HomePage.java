@@ -12,6 +12,17 @@ import utils.SeleniumUtils;
 
 public class HomePage extends TestBase {
 
+    public HomePage(){
+        PageFactory.initElements(driver, this);
+    }
+
+    @FindBy (xpath = "//a[@id='home']")
+    public WebElement home_Btn;
+
+
+    public void navigateToHomePage(){
+        SeleniumUtils.click(home_Btn);
+    }
 
 
 

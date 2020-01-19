@@ -14,6 +14,23 @@ import utils.ConfigReader;
 import utils.SeleniumUtils;
 
 public class AccountTest extends TestBase {
+    Account account;
+    HomePage homePage;
+
+    @BeforeMethod(alwaysRun = true)
+    public void setUp(){
+        initializer();
+        homePage = new HomePage();
+        account = new Account();
+    }
+
+    @AfterMethod(alwaysRun = true)
+    public void tearDown(){
+        driver.quit();
+    }
+
+
+
 
 
 }
