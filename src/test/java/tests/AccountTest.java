@@ -30,7 +30,16 @@ public class AccountTest extends TestBase {
     }
 
 
-
+    @Test(groups = {"smoke"})
+    public void verifyAcctName(){
+        homePage.navigateToHomePage();
+        account.navigateToAcctLogin();
+        account.enterInfoLogin();
+        account.goIntoAcct();
+        SeleniumUtils.waitForVisibilityOfElement(account.acctName);
+        Assert.assertEquals(account.acctName.getText(), "Hello, Rocio");
+        account.signOut();
+    }
 
 
 }
