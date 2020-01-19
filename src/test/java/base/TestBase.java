@@ -15,4 +15,17 @@ public class TestBase {
     public static String url= ConfigReader.readProperty(propertyPath,"url");
     public static String browser= ConfigReader.readProperty(propertyPath,"browser");
 
+
+    public static void initializer(){
+        switch (browser){
+            case "chrome":
+                WebDriverManager.chromedriver().setup();
+                driver=new ChromeDriver();
+        }
+        driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(implicitWait, TimeUnit.SECONDS);
+        driver.get(url);
+
+    }
+
 }
