@@ -11,5 +11,22 @@ import utils.SeleniumUtils;
 
 public class HomePageTest extends TestBase {
 
+    HomePage homePage;
+    Account account;
+
+    @BeforeMethod (alwaysRun = true)
+    public void SetUp(){
+        initializer();
+        homePage= new HomePage();
+        account=new Account();
+    }
+
+    @AfterMethod (alwaysRun = true)
+    public void tearDown(){
+        driver.quit();
+    }
+
+
+
 
 }
