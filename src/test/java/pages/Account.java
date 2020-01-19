@@ -10,20 +10,56 @@ import utils.ConfigReader;
 import utils.SeleniumUtils;
 
 public class Account extends TestBase {
-    Account account;
-    HomePage homePage;
-
-    @BeforeMethod(alwaysRun = true)
-    public void setUp(){
-        initializer();
-        homePage = new HomePage();
-        account = new Account();
+    public Account(){
+        PageFactory.initElements(driver,this);
     }
 
-    @AfterMethod(alwaysRun = true)
-    public void tearDown(){
-        driver.quit();
+    @FindBy(xpath="//a[@id='account']")
+    public WebElement signinMain_btn;
+
+    @FindBy(id ="accountNav-signIn")
+    public WebElement signIn_Btn;
+
+    @FindBy(id="username")
+    public WebElement userName;
+
+    @FindBy(id="password")
+    public WebElement passWord;
+
+    @FindBy(id= "login")
+    public WebElement loginBtn;
+
+    @FindBy(id="accountNav-account")
+    public WebElement acct;
+
+
+    @FindBy(xpath = "//div[@class='managerStyles__MenuTitle-q3xm96-5 bJqDwb h-text-center']//h1")
+    public WebElement acctName;
+
+    @FindBy(id="accountNav-guestSignOut")
+    public WebElement signOut;
+
+
+    public void navigateToAcctLogin() {
+        SeleniumUtils.click(signinMain_btn);
+        SeleniumUtils.click(signIn_Btn);
     }
+    public void enterInfoLogin(){
+        SeleniumUtils.sendKeys(userName, ConfigReader.readProperty(propertyPath,"email"));
+        SeleniumUtils.sendKeys(passWord, ConfigReader.readProperty(propertyPath,"password"));
+        SeleniumUtils.click(loginBtn);
+    }
+
+    public void goIntoAcct(){
+        SeleniumUtils.click(signIn_Btn);
+        SeleniumUtils.click(acct);
+    }
+
+    public void signOut(){
+        SeleniumUtils.click(signinMain_btn);
+        SeleniumUtils.click(signOut);
+    }
+
 
 
 
