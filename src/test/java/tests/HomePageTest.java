@@ -26,6 +26,19 @@ public class HomePageTest extends TestBase {
         driver.quit();
     }
 
+    @Test
+    public void verifyHomeTitle(){
+        SeleniumUtils.waitForVisibilityOfElement(homePage.home_Btn);
+        Assert.assertEquals(driver.getTitle(),"Target : Expect More. Pay Less.");
+    }
+
+    @Test
+    public void testAcctName(){
+        SeleniumUtils.click(account.acctName);
+        String expectedTitle="Hello, Rocio";
+        Assert.assertEquals(SeleniumUtils.getText(account.acctName),expectedTitle);
+    }
+
 
 
 
