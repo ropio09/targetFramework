@@ -1,0 +1,12 @@
+<suite name="Suite 1">
+    <test name="Test1">
+        <groups enable="false">
+            <run>
+                <include name="smoke"/>
+            </run>
+        </groups>
+        <packages>
+            <package name="tests"/>
+        </packages>
+    </test>
+</suite>
