@@ -14,6 +14,8 @@ public class TestBase {
     private static long implicitWait= Long.parseLong(ConfigReader.readProperty(propertyPath, "implicitWait"));
     public static String url= ConfigReader.readProperty(propertyPath,"url");
     public static String browser= ConfigReader.readProperty(propertyPath,"browser");
+    private static String email=ConfigReader.readProperty(propertyPath,"email");
+    private static String passWord= ConfigReader.readProperty(propertyPath,"password");
 
 
     public static void initializer(){
